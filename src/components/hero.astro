@@ -1,0 +1,22 @@
+---
+import Text from "./text.tsx";
+import AnimatedHero from "./animated-hero.tsx";
+import { Image } from "astro:assets";
+import hero from "../assets/hero.jpg";
+---
+
+<section class="flex h-screen items-center">
+  <div class="w-1/2 h-full flex items-center justify-center relative">
+    <AnimatedHero client:load />
+      <Image
+        src={hero}
+        alt="Gallery"
+        width={300}
+        height={300}
+        class="rounded-lg z-10"
+      />
+  </div>
+  <div class="w-1/2 h-full">
+    <h1 class="text-4xl"><Text client:load /> your images</h1>
+  </div>
+</section>
