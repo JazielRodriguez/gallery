@@ -1,11 +1,12 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-	content: ['./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}'],
-	theme: {
-		fontFamily:{
-			'sans':['Questrial', 'sans-serif']
-		},
-		extend: {},
-	},
-	plugins: [],
-}
+  content: ["./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}"],
+  theme: {
+    fontFamily: {
+      sans: ["Questrial", "sans-serif"],
+      serif: ["DM Serif Display", "sans-serif"],
+    },
+    extend: {},
+  },
+  plugins: [],
+};

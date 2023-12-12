@@ -1,6 +1,8 @@
 ---
-import Header from '../components/header.astro'
-import Hero from '../components/hero.astro'
+import Title from "../components/title.astro";
+import { getImage } from "astro:assets";
+import bg from "../assets/bg.jpg";
+const optimizedBgImage = await getImage({ src: bg });
 ---
 
 <html lang="en">
@@ -12,13 +14,17 @@ import Hero from '../components/hero.astro'
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Questrial&display=swap"
       rel="stylesheet"
     />
     <title>Gallery</title>
   </head>
   <body>
-    <Header />
-    <Hero />
+    <div
+      class="relative w-full h-screen bg-no-repeat bg-cover flex justify-end items-end"
+      style={`background-image:url('${optimizedBgImage.src}')`}
+    >
+      <Title />
+    </div>
   </body>
 </html>
