@@ -1,8 +1,8 @@
 ---
-import Header from "../components/header.astro";
 import { getImage } from "astro:assets";
-import bg from "../assets/bg.jpg";
+import bg from "../assets/login.jpg";
 const optimizedBgImage = await getImage({ src: bg });
+import LoginForm from "../components/login.astro";
 ---
 
 <html lang="en">
@@ -17,19 +17,15 @@ const optimizedBgImage = await getImage({ src: bg });
       href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Questrial&display=swap"
       rel="stylesheet"
     />
-    <title>Gallery</title>
+    <title>Login | Gallery</title>
   </head>
   <body class="z-0">
     <div
-      class="relative w-full h-screen bg-no-repeat bg-cover"
+      class="relative w-full h-screen bg-no-repeat bg-cover flex items-center justify-center "
       style={`background-image:url('${optimizedBgImage.src}')`}
     >
-      <div
-        class="absolute left-0 top-0 w-full h-screen bg-black z-[5]"
-        style="opacity: 0.75;"
-      >
-      </div>
-      <Header />
+      <div class="h-screen w-full bg-black absolute top-0 left-0 z-[5]" style="opacity:0.75;"></div>
+      <LoginForm />
     </div>
   </body>
 </html>
