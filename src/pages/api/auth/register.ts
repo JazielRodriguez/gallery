@@ -6,30 +6,22 @@ export const POST: APIRoute = async ({ request, redirect }) => {
   const auth = getAuth(app);
   /* Get form data */
   const formData = await request.formData();
-  console.log(formData)
   const email = formData.get("email")?.toString();
-  const passwd = formData.get("passwd")?.toString();
+  const password = formData.get("passwd")?.toString();
   const name = formData.get("name")?.toString();
-
-  if (!email || !passwd || !name) {
-    return new Response(
-      "Missing form data",
-      { status: 400 }
-    );
+  if (!email || !password || !name) {
+    return new Response("Missing form data", { status: 400 });
   }
 
   /* Create user */
   try {
     await auth.createUser({
       email,
-      password:passwd,
+      password,
       displayName: name,
     });
   } catch (error: any) {
-    return new Response(
-      "Something went wrong bitch",
-      { status: 400 }
-    );
+    return new Response("Something went wrong" + error + "this works madafaka", { status: 400 });
   }
-  return redirect("/signin");
+  return redirect("/login");
 };
