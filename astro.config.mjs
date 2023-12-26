@@ -9,5 +9,6 @@ export default defineConfig({
   image:{
     domains:["pexels.com"],
     remotePatterns: [{ protocol: "https" }],
-  }
+  },
+  output:'hybrid'
 });
