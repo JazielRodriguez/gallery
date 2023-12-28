@@ -1,7 +1,6 @@
 import type { APIRoute } from "astro";
 import { getAuth } from "firebase-admin/auth";
 import { app } from "../../../firebase/server";
-
 export const POST: APIRoute = async ({ request, redirect }) => {
   const auth = getAuth(app);
   /* Get form data */
@@ -21,7 +20,12 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       displayName: name,
     });
   } catch (error: any) {
-    return new Response("Something went wrong" + error + "this works madafaka", { status: 400 });
+    return new Response(
+      JSON.stringify({
+        message: "Something went wrong" + error + "this works madafaka",
+        status: 400,
+      })
+    );
   }
-  return redirect("/login");
+  return new Response(JSON.stringify({ message: "Great", status: 200 }));
 };
