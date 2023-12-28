@@ -12,5 +12,7 @@ export default defineConfig({
     remotePatterns: [{ protocol: "https" }],
   },
   output:'hybrid',
-  adapter:vercel()
+  adapter:vercel(),
+  base: "/",
+    trailingSlash: "always"
 });
