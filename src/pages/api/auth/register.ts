@@ -31,5 +31,5 @@ export const POST: APIRoute = async ({ request, redirect }) => {
       })
     );
   }
-  return new Response(JSON.stringify({ message: "Great", status: 200 }));
+  return redirect('/login');
 };

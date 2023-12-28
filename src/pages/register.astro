@@ -2,7 +2,7 @@
 import { getImage } from "astro:assets";
 import bg from "../assets/register-bg.jpg";
 const optimizedBgImage = await getImage({ src: bg });
-import RegisterForm from "../components/register-form.tsx";
+import RegisterForm from "../components/register-form.astro";
 ---
 
 <html lang="en">
@@ -29,7 +29,7 @@ import RegisterForm from "../components/register-form.tsx";
         style="opacity:0.75;"
       >
       </div>
-      <RegisterForm client:load />
+      <RegisterForm />
     </div>
   </body>
 </html>
