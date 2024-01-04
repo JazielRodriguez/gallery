@@ -1,0 +1,26 @@
+---
+import { getImage } from "astro:assets";
+import bg from "../assets/register-bg.jpg";
+const optimizedBgImage = await getImage({ src: bg });
+import RegisterForm from "../components/register-form.astro";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <title>Upload | Gallery</title>
+  </head>
+  <body class="z-0">
+    <button class="bg-indigo-500 rounded p-8 text-white">Upload an image</button
+    >
+  </body>
+</html>
