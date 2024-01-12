@@ -1,6 +1,6 @@
 ---
-import Gallery from "../components/gallery.tsx";
-import Menu from '../components/menu.astro'
+import Gallery from "../components/gallery.astro";
+import Menu from "../components/menu.astro";
 ---
 
 <html lang="en">
@@ -19,6 +19,6 @@ import Menu from '../components/menu.astro'
   </head>
   <body class="z-0 flex gap-2 min-h-screen bg-slate-100">
     <Menu />
-    <Gallery client:load/>
+    <Gallery />
   </body>
 </html>

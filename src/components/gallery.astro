@@ -1,0 +1,14 @@
+---
+import { getImages } from "../hooks/getImages.ts";
+const listOfImages: Promise<string[]> = getImages().then((url) => {
+  console.log(url);
+  return url;
+});
+---
+
+<div class="px-8 py-4 w-[85%] min-h-screen">
+  <p class="text-3xl py-4">Preview</p>
+  <div class="flex flex-wrap gap-2">
+    {listOfImages.map((url:string) => <img src={url} />)}
+  </div>
+</div>

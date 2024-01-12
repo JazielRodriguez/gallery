@@ -2,7 +2,7 @@ import type { ServiceAccount } from "firebase-admin";
 import { initializeApp, cert, getApps } from "firebase-admin/app";
 
 const activeApps = getApps();
-const {privateKey} = JSON.parse(import.meta.env.PRIVATE_KEY)
+const { privateKey } = JSON.parse(import.meta.env.PRIVATE_KEY);
 const serviceAccount = {
   type: "service_account",
   project_id: import.meta.env.PROJECT_ID,
@@ -15,7 +15,9 @@ const serviceAccount = {
   auth_provider_x509_cert_url: import.meta.env.AUTH_CERT_URL,
   client_x509_cert_url: import.meta.env.CLIENT_CERT_URL,
 };
-
-export const app = activeApps.length === 0 ? initializeApp({
-  credential: cert(serviceAccount as ServiceAccount),
-}) : activeApps[0];
+export const app =
+  activeApps.length === 0
+    ? initializeApp({
+        credential: cert(serviceAccount as ServiceAccount),
+      })
+    : activeApps[0];

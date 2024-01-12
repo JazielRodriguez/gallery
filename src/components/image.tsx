@@ -1,6 +1,13 @@
 import React, { useState } from "react";
 interface Props {
   url: string;
+  onImageIsMaximized: ({
+    isVisible,
+    url,
+  }: {
+    isVisible: boolean;
+    url: string;
+  }) => void;
 }
 const Image: React.FC<Props> = (props) => {
   const [buttonsAreVisible, setButtonsAreVisible] = useState<boolean>(false);
@@ -9,6 +16,9 @@ const Image: React.FC<Props> = (props) => {
   };
   const buttonsArentVisibleHandler = () => {
     setButtonsAreVisible(false);
+  };
+  const imageMaximizedHandler = () => {
+    props.onImageIsMaximized({ isVisible: true, url: props.url });
   };
   return (
     <div
@@ -22,7 +32,10 @@ const Image: React.FC<Props> = (props) => {
       />
       {buttonsAreVisible && (
         <div className="absolute right-[2rem] bottom-[2rem] flex gap-4">
-          <div className="z-[10000000] w-[2rem] h-[2rem] bg-indigo-500  rounded-2xl flex items-center justify-center cursor-pointer">
+          <div
+            className="z-[10000000] w-[2rem] h-[2rem] bg-indigo-500  rounded-2xl flex items-center justify-center cursor-pointer"
+            onClick={imageMaximizedHandler}
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               className="icon icon-tabler icon-tabler-arrows-maximize"
@@ -32,8 +45,8 @@ const Image: React.FC<Props> = (props) => {
               strokeWidth="2"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M16 4l4 0l0 4" />
@@ -56,8 +69,8 @@ const Image: React.FC<Props> = (props) => {
               strokeWidth="2"
               stroke="currentColor"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path stroke="none" d="M0 0h24v24H0z" fill="none" />
               <path d="M4 17v2a2 2 0 0 0 2 2h12a2 2 0 0 0 2 -2v-2" />
